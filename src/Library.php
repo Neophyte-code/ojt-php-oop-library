@@ -8,11 +8,13 @@ class Library implements Borrowable
     private array $loans = [];
     private int $returnedCount = 0;
 
+    //function to add book
     public function addBook(Book $book): void
     {
         $this->books[$book->getIsbn()] = $book;
     }
 
+    //getter for book isbn
     public function getBookByIsbn(string $isbn): Book
     {
         if (!isset($this->books[$isbn])) throw new Exception("Book ISBN $isbn not found.");
@@ -29,7 +31,7 @@ class Library implements Borrowable
         $member->addLoan($book->getIsbn());
         $this->loans[$book->getIsbn()] = new Loan($book, $member, new DateTime());
 
-        echo "\n Borrow SUCCESS\n\n";
+        echo "\nBorrow SUCCESS\n\n";
     }
 
     //function to return a borrowed book
@@ -55,7 +57,7 @@ class Library implements Borrowable
         $available = array_filter($this->books, fn($b) => $b->checkAvailability());
 
         if (empty($available)) {
-            echo "   No books currently available\n";
+            echo "No books currently available\n";
         } else {
             foreach ($available as $book) {
                 echo "   • [" . $book->getIsbn() . "] " . $book->getTitle() . "\n\n";

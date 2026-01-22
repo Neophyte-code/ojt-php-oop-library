@@ -15,7 +15,7 @@ $lib->addBook(new Book("101", "PHP Mastery"));
 $lib->addBook(new Book("102", "OOP Pillars"));
 $lib->addBook(new Book("103", "JAVA Zero to Hero"));
 
-// Pre-defined Accounts
+// Pre-defined Accounts / associative array
 $accounts = [
     //student member
     "std_01" => new StudentMember("Jerwin", "std_01"),
