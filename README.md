@@ -1,55 +1,91 @@
-# ojt-php-oop-library
+# OJT PHP OOP Library
 
-Mini Library System (PHP CLI)
+**Mini Library System (PHP CLI)**
 
-A PHP CLI application demonstrating the core pillars of Object-Oriented Programming (OOP) through a library management scenario. The system features a login-based session, book borrowing/returning logic.
+A PHP CLI application demonstrating the core pillars of **Object-Oriented Programming (OOP)** through a library management scenario.  
+The system features a **login-based session**, **book borrowing**, and **returning logic**.
 
-Folder Structure
+---
 
+## Folder Structure
+
+```bash
 OjtPhpOopLibrary/
 ├── src/
-│ ├── Book.php # Encapsulation
-│ ├── Member.php # Abstraction & Inheritance
-│ ├── StudentMember.php # Inheritance
-│ ├── RegularMember.php # Inheritance
-│ ├── Borrowable.php # Interface (Polymorphism)
-│ ├── Loan.php # Composition Object
-│ └── Library.php # Controller (Composition & Polymorphism)
-├── index.php # Interactive Entry Point
-└── README.md # Documentation
+│   ├── Book.php            # Encapsulation
+│   ├── Member.php          # Abstraction & Inheritance
+│   ├── StudentMember.php   # Inheritance
+│   ├── RegularMember.php   # Inheritance
+│   ├── Borrowable.php      # Interface (Polymorphism)
+│   ├── Loan.php            # Composition Object
+│   └── Library.php         # Controller (Composition & Polymorphism)
+├── index.php               # Interactive Entry Point
+└── README.md               # Documentation
+```
 
-How to Run
+---
 
-1. Ensure PHP is installed (v8.0 or higher recommended).
+## How to Run
 
+1. Ensure **PHP is installed** (v8.0 or higher recommended).
 2. Navigate to the project directory using your terminal/command prompt.
-
 3. Execute the following command:
 
-   php index.php
+```bash
+php index.php
+```
 
-OOP Concepts Mapping
+---
 
-This project proves the implementation of the following concepts:
+## OOP Concepts Mapping
 
-Encapsulation - Book Class: Uses private properties ($isAvailable). Data is only accessible through public getters and modified via controlled setters (setAvailability).
+This project demonstrates the implementation of the following concepts:
 
-Abstraction - Member Class: Defined as abstract. It cannot be instantiated and forces child classes to implement the canBorrow() logic.
+### Encapsulation — Book Class
 
-Inheritance - Student & Regular Member: Both classes extend Member, inheriting common properties (Name, ID) while specializing their own borrow limits.
+Uses private properties (`$isAvailable`).  
+Data is only accessible through public getters and modified via controlled setters (`setAvailability()`).
 
-Polymorphism - Library Class: Implements the Borrowable interface. It treats different member types (Student/Regular) uniformly through the Member type hint.
+### Abstraction — Member Class
 
-Composition - Library Class: "Has-a" relationship with Loan objects. The Library manages the lifecycle of these objects in a private array $loans."
+Defined as `abstract`.  
+It cannot be instantiated and forces child classes to implement the `canBorrow()` logic.
 
-Exceptions - Error Handling: Uses try-catch blocks to handle business logic failures (e.g., borrowing an unavailable book or exceeding limits) without crashing.
+### Inheritance — Student & Regular Member
 
-Sample Output
-A) Action Logs
+Both classes extend `Member`, inheriting common properties (Name, ID) while specializing their own borrow limits.
+
+### Polymorphism — Library Class
+
+Implements the `Borrowable` interface.  
+Treats different member types (Student/Regular) uniformly through the `Member` type hint.
+
+### Composition — Library Class
+
+"Has-a" relationship with `Loan` objects.  
+The Library manages the lifecycle of these objects in a private array `$loans`.
+
+### Exceptions — Error Handling
+
+Uses `try-catch` blocks to handle business logic failures  
+(e.g., borrowing an unavailable book or exceeding limits) without crashing the program.
+
+---
+
+## Sample Output
+
+### A) Action Logs
+
 ![Action Logs](image.png)
-B) Available Books List
-![alt text](image-1.png)
-C) Active Loans
-![alt text]({9818A97F-C1D1-4F37-9452-BD45F275A6E8}.png)
-D) Totals (System Summary)
-![alt text]({DA114FA2-6FB8-43B9-A833-588F40715E5B}.png)
+
+### B) Available Books List
+
+![Available Books](image-1.png)
+
+### C) Active Loans
+
+![Active Loans]({9818A97F-C1D1-4F37-9452-BD45F275A6E8}.png)
+
+### D) Totals (System Summary)
+
+![System Summary]({DA114FA2-6FB8-43B9-A833-588F40715E5B}.png)
